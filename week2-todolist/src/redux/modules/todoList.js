@@ -41,7 +41,7 @@ const initialState = {
 			id: 2, // id는 모두 고유값이어야 합니다.
 			title: "점심 먹기",
 			body: "점심 뭐먹지..?",
-			isDone: false
+			isDone: true
 		}
 	],
 	todoItem: {}
@@ -74,7 +74,7 @@ const todoList = (state = initialState, action) => {
 		case GET_TODO_BY_ID:
 			return{
 				todos: state.todos, 
-				todoItem: state.todos.find(({ id }) => id === action.payload)
+				todoItem: state.todos.find(({ id }) => id === action.payload),
 			};
         default:
             return state;

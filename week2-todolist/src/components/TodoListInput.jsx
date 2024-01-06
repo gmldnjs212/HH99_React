@@ -10,17 +10,9 @@ export default function TodoInput() {
 
   // 저장소에서 데이터 가져옴
   const todos = useSelector((state) => state.todoList.todos);
-
   const [titleVal, setTitleVal] = useState('');
   const [bodyVal, setBodyVal] = useState('');
-  const todoId = useRef(()=>{
-    if(todos.length === 0){
-      return todos[todos.length-1].id;
-    }
-    else{
-      return 0;
-    }
-  });
+  const todoId = useRef(todos.length !== 0 ? todos[todos.length - 1].id : 0);
 
   // 제목, 내용 변경 핸들러
   const titleChangeHandler = (event) => setTitleVal(event.target.value);
@@ -41,7 +33,7 @@ export default function TodoInput() {
         <InputLabel>제목</InputLabel>
         <AddInput
           type="text"
-          name="title"
+          name="body"
           onChange={titleChangeHandler}
           value={titleVal}
         />
