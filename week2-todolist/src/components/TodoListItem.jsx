@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteTodo, toggleStatusTodo } from '../redux/modules/todoList';
@@ -13,7 +13,8 @@ export default function TodoListItem({ doneStatus }) {
   const todos = useSelector((state) => state.todoList.todos );
   
   // 현재 진행 여부에 해당되는 리스트만 담기
-  const filteredTodos = todos.filter((todo) => todo.isDone === doneStatus);
+  const filteredTodos = todos.filter((todo) => todo.isDone !== doneStatus);
+  useEffect(() => {console.log(filteredTodos)}, []);
 
   return (
     <ListWrapper>
