@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { deleteTodo, toggleStatusTodo } from '../redux/modules/todoList';
@@ -9,18 +9,18 @@ export default function TodoListItem({ doneStatus }) {
   const dispatch = useDispatch();
 
   // 저장소에서 데이터 가져옴
-  const todos = useSelector((state) => state.todoList );
-  console.log(todos[todos[0].id-1].isDone);
-
+  const todos = useSelector((state) => state.todoList.todos );
+  
   // 현재 진행 여부에 해당되는 리스트만 담기
-  const filteredTodos = todos.filter((todo) => todo.isDone === doneStatus);
+  const filteredTodos = todos.filter((todo) => todo.isDone !== doneStatus);
+  useEffect(() => {console.log(filteredTodos)}, []);
 
   return (
     <ListWrapper>
       {filteredTodos.map((todo) => {
         return (
           <TodoContainer 
-            key={todo.id}>
+            key={`${todo.id}`}>
 
             <div>
               <h2 className="todo-title">{todo.title}</h2>
@@ -29,11 +29,11 @@ export default function TodoListItem({ doneStatus }) {
 
             <ButtonSet>
               <TodoDeleteBtn 
-                onClick={dispatch(deleteTodo(todo.id))}>
+                onClick={() => {dispatch(deleteTodo(todo.id))}}>
                 삭제하기
               </TodoDeleteBtn>
               <TodoCompleteBtn 
-                onClick={dispatch(toggleStatusTodo(todo.id))}>
+                onClick={() => {dispatch(toggleStatusTodo(todo.id))}}>
                 {doneStatus ? '취소' : '완료'}
               </TodoCompleteBtn>
             </ButtonSet>
