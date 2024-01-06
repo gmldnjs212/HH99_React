@@ -13,8 +13,8 @@ export default function TodoListItem({ doneStatus }) {
   const todos = useSelector((state) => state.todoList.todos );
   
   // 현재 진행 여부에 해당되는 리스트만 담기
-  const filteredTodos = todos.filter((todo) => todo.isDone !== doneStatus);
-  useEffect(() => {console.log(filteredTodos)}, []);
+  const filteredTodos = todos.filter((todo) => todo.isDone === doneStatus);
+  useEffect(() => {console.log(filteredTodos)}, [filteredTodos]);
 
   return (
     <ListWrapper>
