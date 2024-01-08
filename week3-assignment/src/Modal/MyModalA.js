@@ -2,14 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 function MyModalA({ onClose }){
+    // 닫기, 확인 버튼이 있고 닫기버튼 누르면 닫혀야 함
+    // 외부영역을 클릭해도 모달창이 닫히지 않아야함
     return (
         <div className="MyModalA">
             <Mask></Mask>
             <ModalBody>
-                <div>닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지 않아요.</div>
+                <div>
+                    닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지 않아요.
+                </div>
                 <ModalButtonGroup>
                     <div>
-                        <CloseButton onClick={() => alert("닫기 버튼")}>
+                        <CloseButton onClick={onClose}>
                             닫기
                         </CloseButton>
                     </div>

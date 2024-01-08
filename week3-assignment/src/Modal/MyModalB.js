@@ -2,20 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 function MyModalB({ onClose }){
+    // 외부 영역 클릭시 닫혀야 함
+    // 우측상단에 닫기 버튼이 있고 누르면 닫혀야함
     return (
         <div className="MyModalB">
             <Mask onClick={onClose}></Mask>
             <ModalBody>
-                <div>닫기와 확인 버튼 2개가 있고, 외부 영역을 눌러도 모달이 닫히지 않아요.</div>
+                <div>
+                    닫기 버튼 1개가 있고,
+                    <br />
+                    외부 영역을 누르면 모달이 닫혀요.
+                </div>
                 <ModalButtonGroup>
                     <div>
-                        <CloseButton onClick={() => alert("닫기 버튼")}>
-                            닫기
+                        <CloseButton onClick={onClose}>
+                            X
                         </CloseButton>
                     </div>
-                    <ConfirmButton>
-                        확인
-                    </ConfirmButton>
                 </ModalButtonGroup>
             </ModalBody>
         </div>
@@ -40,32 +43,19 @@ const ModalBody = styled.div`
     box-sizing: border-box;
     padding: 24px;
     background-color: rgb(255, 255, 255);
-    width: 500px;
-    height: 300px;
+    width: 300px;
+    height: 200px;
     position: absolute;
 `
 const ModalButtonGroup = styled.div`
     position: absolute;
-    bottom: 12px;
+    top: 12px;
     right: 12px;
-    display: flex;
-    gap: 5px;
 `
 const CloseButton = styled.button`
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    background-color: rgb(250, 177, 160);
-    color: rgb(214, 48, 49);
+    border: 1px solid rgb(221, 221, 221);
+    width: 40px;
     height: 40px;
-    width: 100px;
-`
-const ConfirmButton = styled.button`
-    border: none;
+    border-radius: 100%;
     cursor: pointer;
-    border-radius: 8px;
-    background-color: rgb(85, 239, 196);
-    color: rgb(0, 0, 0);
-    height: 40px;
-    width: 100px;
 `

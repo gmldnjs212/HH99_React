@@ -6,8 +6,10 @@ import ModalPortal from '../Modal/ModalPortal';
 
 
 function ModalArea() {
+    // 모달창 켜져있는지에 대한 여부
     const [modalAIsOn, setmodalAIsOn] = useState(false);
     const [modalBIsOn, setmodalBIsOn] = useState(false);
+    // 모달창 상태 토글 함수
     const modalAStatusChanger = () => { 
         // console.log("MODAL A 실행됨");
         return setmodalAIsOn(!modalAIsOn) 
