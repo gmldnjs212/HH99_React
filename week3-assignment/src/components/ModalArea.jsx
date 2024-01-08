@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import MyModalA from '../Modal/MyModalA';
 import MyModalB from '../Modal/MyModalB';
-import ModalPortal from '../Modal/Protal';
+import ModalPortal from '../Modal/ModalPortal';
 
 
 function ModalArea() {
