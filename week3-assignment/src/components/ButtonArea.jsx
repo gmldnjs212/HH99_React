@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 function ButtonArea() {
     const colorData = {
         MINT : "rgb(85, 239, 196)",
@@ -8,6 +9,11 @@ function ButtonArea() {
         RED : "rgb(214, 48, 49);",
         BLACK : "rgb(0, 0, 0);",
     };
+    const iconHander = (value) => {
+        const pirmaryIcon = <span class="material-symbols-outlined">chevron_right</span>
+        const negativeIcon = <span class="material-symbols-outlined">notifications</span>
+        return value === "primary" ? pirmaryIcon : negativeIcon
+    }
     return (
         <Container>
             <h1>Button</h1>
@@ -16,7 +22,7 @@ function ButtonArea() {
                     borderColor={colorData.MINT}
                     textColor={colorData.BLACK}
                     onClick={() => alert("버튼을 만들어보세요")}>
-                        Large Primary Button
+                        Large Primary Button {iconHander("primary")}
                 </LargeButton>
                 <MediumButton
                     backgroundColor={colorData.MINT}>
@@ -33,7 +39,7 @@ function ButtonArea() {
                     borderColor={colorData.ROSE}
                     textColor={colorData.RED}
                     onClick={() => prompt("어렵나요?")}>
-                        Large Negative Button
+                        Large Negative Button {iconHander("")}
                 </LargeButton>
                 <MediumButton
                     textColor={colorData.RED}
@@ -63,6 +69,9 @@ const ButtonGroup = styled.div`
     gap: 10px;
 `
 const LargeButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     border-radius: 8px;
     color: ${ (props) => props.textColor };

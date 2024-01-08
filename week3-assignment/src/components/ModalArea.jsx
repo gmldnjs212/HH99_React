@@ -1,25 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import MyModalA from '../Modal/MyModalA';
+import MyModalB from '../Modal/MyModalB';
+import ModalPortal from '../Modal/Protal';
+
 
 function ModalArea() {
+    const [modalAIsOn, setmodalAIsOn] = useState(false);
+    const [modalBIsOn, setmodalBIsOn] = useState(false);
+    const modalAStatusChanger = () => { 
+        // console.log("MODAL A 실행됨");
+        return setmodalAIsOn(!modalAIsOn) 
+    };
+    const modalBStatusChanger = () => { 
+        // console.log("MODAL B 실행됨");
+        return setmodalBIsOn(!modalBIsOn) 
+    };
+
     return (
         <div>
-            <div>
-                <h1>Modal</h1>
-                <Container>
-                    <div>
-                        <ButtonA>open modal</ButtonA>
-                    </div>
-                    <div>
-                        <ButtonB>open modal</ButtonB>
-                    </div>
-                </Container>
-            </div>
+            <h1>Modal</h1>
+            <Container>
+                <div>
+                    <ButtonA 
+                        onClick={() => modalAStatusChanger()}
+                        >
+                            open modal
+                    </ButtonA>
+                        <ModalPortal>
+                            {modalAIsOn && <MyModalA onClose={modalAStatusChanger} />}
+                        </ModalPortal>
+                </div>
+                <div>
+                    <ButtonB 
+                        onClick={() => modalBStatusChanger()}
+                        >
+                            open modal
+                    </ButtonB>
+                        <ModalPortal>
+                            {modalBIsOn && <MyModalB onClose={modalBStatusChanger} />}
+                        </ModalPortal>
+                </div>
+            </Container>
         </div>
     )
 }
 
-export default ModalArea
+export default ModalArea;
 
 const Container = styled.div`
     display: flex;

@@ -5,6 +5,7 @@ import ModalArea from './components/ModalArea'
 import SelectArea from './components/SelectArea'
 
 function App() {
+
   return (
     <div>
       <ButtonArea />
@@ -16,4 +17,3 @@ function App() {
 }
 
 export default App
-

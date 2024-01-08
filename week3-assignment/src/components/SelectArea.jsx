@@ -21,6 +21,7 @@ function SelectArea() {
                     </SelectItem>
                 </SelectGroup>
             </Cotainer>
+            
         </div>
     )
 }

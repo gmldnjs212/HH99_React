@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 function InputArea() {
+    const [nameValue, setNameVal] = useState("");
+    const [priceValue, setPriceValue] = useState(0);
+    
+    const nameOnChangeHandler = (event) => {
+        setNameVal(event.target.value);
+    }
+    const priceOnChangeHandler = (event) => {
+        let priceVal = event.target.value;
+        priceVal = Number(priceVal.replaceAll(',', ''));
+        if(isNaN(priceVal)){
+            setPriceValue(0)
+        } else {
+            setPriceValue(priceVal.toLocaleString('ko-KR'));
+        }
+    }
+    const handleButtonClick = () => {
+        // 버튼 클릭 시 nameValue와 priceValue를 출력하는 로직
+        console.log(typeof(priceValue));
+        alert(`Name: ${nameValue}, Price: ${priceValue}`);
+    };
     return (
         <div>
             <h1>Input</h1>
@@ -9,14 +29,19 @@ function InputArea() {
                 <Container>
                     <div>
                         <label>이름</label>
-                        <InputBox type='text'/>
+                        <InputBox 
+                            type='text'
+                            onChange={nameOnChangeHandler} />
                     </div>
                     <div>
                         <label>가격</label>
-                        <InputBox type='text' value="0"/>
+                        <InputBox 
+                            type='text'
+                            value = {priceValue}
+                            onChange={priceOnChangeHandler} />
                     </div>
                     <SaveButton
-                        onClick={() => alert("저장 버튼")}>
+                        onClick={() => handleButtonClick()}>
                             저장
                     </SaveButton>
                 </Container>
