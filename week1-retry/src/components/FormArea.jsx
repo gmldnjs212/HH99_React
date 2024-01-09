@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 function FormArea() {
+    const [titleVal, setTitleVal] = useState("")
+    const [contentVal, setContentVal] = useState("")
+    const addButtonHandler = () => {
+
+    }
     return (
         <AddForm>
             <InputGroup>
                 <InputLabel>제목</InputLabel>
-                <AddInput type="text" name="title"/>
+                <AddInput 
+                    type="text" 
+                    name="title"/>
                 <InputLabel>내용</InputLabel>
-                <AddInput type="text" name="body"/>
+                <AddInput 
+                    type="text"
+                    name="content"/>
             </InputGroup>
-            <AddButton>추가하기</AddButton>
+            <AddButton
+                onClick={()=>addButtonHandler()}>추가하기</AddButton>
         </AddForm>
     )
 }
