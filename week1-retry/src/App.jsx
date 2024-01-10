@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import FormArea from './components/FormArea';
-import ListArea from './components/ListArea';
+import InputArea from './components/InputArea';
+import OutputArea from './components/OutputArea';
 
 function App() {
-
 	const [todos, setTodos] = useState([
 		{
 			id:1, 
@@ -18,7 +17,7 @@ function App() {
 			content:"CSS를 공부합니다.",
 			isDone:false
 		}
-	])
+	]);
 
 	return (
 		<Layout>
@@ -26,8 +25,12 @@ function App() {
 				<div>My Todo List</div>
 				<div>React</div>
 			</Container>
-			<FormArea />
-			<ListArea />
+			<InputArea 
+				todos={todos}
+				setTodos={setTodos}/>
+			<OutputArea 
+				todos={todos}
+				setTodos={setTodos}/>
 		</Layout>
 	)
 }

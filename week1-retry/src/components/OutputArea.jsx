@@ -1,23 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import ListItem from './TodoItem'
+import TodoItem from './TodoItem'
 
-function ListArea() {
+function OutputArea({ todos, setTodos }) {
     return (
         <ListContainer>
+
             <h2>Working.. 🔥</h2>
             <ListWrapper>
-                <ListItem />
+                <TodoItem todos={todos} setTodos={setTodos} doneStatus={false}/>
             </ListWrapper>
+
             <h2>Done..! 🎉</h2>
             <ListWrapper>
-                <ListItem />
+                <TodoItem todos={todos} setTodos={setTodos} doneStatus={true}/>
             </ListWrapper>
+
         </ListContainer>
     )
 }
 
-export default ListArea
+export default OutputArea;
 
 const ListContainer = styled.div`
     padding: 0 24px;
