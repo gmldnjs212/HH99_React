@@ -39,7 +39,7 @@ const Mask = styled.div`
 `
 const DropdownBody = styled.div`
     left: 465px;
-    top: 79%;
+    top: 720px;
     border: 1px solid lightgray;
     transform: translate(-50%, -50%);
     border-radius: 12px;

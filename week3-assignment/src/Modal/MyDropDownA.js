@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useRef } from "react";
 
 function MyDropDownA({ onClose }){
     // 박스 바깥으로 나가야함
+
     return (
         <div className="MyDropDownA">
             <Mask onClick={onClose}></Mask>
@@ -38,7 +40,7 @@ const Mask = styled.div`
 `
 const DropdownBody = styled.div`
     left: 155px;
-    top: 79%;
+    top: 720px;
     border: 1px solid lightgray;
     transform: translate(-50%, -50%);
     border-radius: 12px;

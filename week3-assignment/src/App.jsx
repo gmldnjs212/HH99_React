@@ -1,8 +1,8 @@
 import React from 'react'
-import ButtonArea from './components/ButtonArea'
-import InputArea from './components/InputArea'
-import ModalArea from './components/ModalArea'
-import SelectArea from './components/SelectArea'
+import ButtonArea from './Area/ButtonArea'
+import InputArea from './Area/InputArea'
+import ModalArea from './Area/ModalArea'
+import SelectArea from './Area/SelectArea'
 
 function App() {
 

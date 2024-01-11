@@ -5,6 +5,7 @@ import MyDropdownB from '../Modal/MyDropDownB';
 import ModalPortal from '../Modal/ModalPortal';
 
 function SelectArea() {
+
     // 드랍다운 켜져있는지에 대한 여부
     const [dropDownAIsOn, setdropDownAIsOn] = useState(false);
     const [dropDownBIsOn, setdropDownBIsOn] = useState(false);
